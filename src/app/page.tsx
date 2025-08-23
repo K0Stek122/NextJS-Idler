@@ -1,12 +1,14 @@
-'use client';
-
+import CaveCard from "./components/CaveCard";
 import Navbar from "./components/Navbar";
-import MainPage from "./components/MainPage";
+import { BACKGROUND_STYLES, BACKDROP_STYLES } from "./globals";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen w-full font-sans flex flex-col bg-gray-900">
-        <MainPage />
+    <div className={BACKGROUND_STYLES}>
+        <div className={BACKDROP_STYLES}>
+            <Navbar />
+            <CaveCard oreName="Iron" timeToMine={2000} goldOnMine={1} />
+        </div>
     </div>
   );
 }
