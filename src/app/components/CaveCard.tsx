@@ -1,5 +1,6 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
+import { useGame } from '@/stores/useGame';
 
 interface CaveCardProps {
     oreName?: string,
@@ -12,8 +13,21 @@ const CaveCard: React.FC<CaveCardProps> = ({
     timeToMine = 2000,
     goldOnMine = 0,
 }) => {
+    const [flash, setFlash] = useState(false);
+    const gold = useGame((s) => s.gold);
+    const addGold = useGame(s => s.addGold);
+
+    const handleClick = () => {
+        if (!flash) {
+            setFlash(true);
+            setTimeout(() => setFlash(false), timeToMine);
+            addGold(goldOnMine);
+        }
+    };
+
     return (
-        <div className="
+        <div className={`
+            ${flash ? 'bg-yellow-400' : ''}
             w-64
             h-40
             bg-gray-700
@@ -30,7 +44,8 @@ const CaveCard: React.FC<CaveCardProps> = ({
             hover:scale-105
             ease-in-out
             duration-300
-            cursor-pointer">
+            m-5
+            cursor-pointer`} onClick={handleClick}>
         
         <h1 className="text-xl underline p-2 overflow-clip">Ore: {oreName}</h1>
         <h2 className="text-md p-0 overflow-clip">Time: {(timeToMine / 1000).toFixed(2)}s</h2>

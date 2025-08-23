@@ -7,7 +7,8 @@ export default function Home() {
     <div className={BACKGROUND_STYLES}>
         <div className={BACKDROP_STYLES}>
             <Navbar />
-            <CaveCard oreName="Iron" timeToMine={2000} goldOnMine={1} />
+            <CaveCard oreName="Bronze" timeToMine={2000} goldOnMine={1} />
+            <CaveCard oreName="Copper" timeToMine={10000} goldOnMine={5} />
         </div>
     </div>
   );

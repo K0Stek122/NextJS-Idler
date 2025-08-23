@@ -23,4 +23,5 @@ export const BACKDROP_STYLES = [
     'mx-auto',
     'my-auto',
     'min-h-screen',
+    'select-none',
 ].join(' ');
