@@ -25,3 +25,19 @@ export const BACKDROP_STYLES = [
     'min-h-screen',
     'select-none',
 ].join(' ');
+
+export const BRONZE_TIME = 500;
+export const BRONZE_UNLOCK = 0;
+export const BRONZE_GOLD = 1;
+
+export const COPPER_TIME = 1000;
+export const COPPER_UNLOCK = 1000;
+export const COPPER_GOLD = 5;
+
+export const IRON_TIME = 1500;
+export const IRON_UNLOCK = 5000;
+export const IRON_GOLD = 10;
+
+export const GOLD_TIME = 2500;
+export const GOLD_UNLOCK = 10000;
+export const GOLD_GOLD = 25;
