@@ -12,6 +12,11 @@ type Game = {
     ironPerSecond: number,
     goldOrePerSecond: number,
 
+    setBronzePerSecond: (amnt: number) => void;    
+    setCopperPerSecond: (amnt: number) => void;
+    setIronPerSecond: (amnt: number) => void;
+    setGoldPerSecond: (amnt: number) => void;    
+
     lastTickAt: number;
     addGold: (amnt: number) => void;
     tick: () => void;
@@ -23,10 +28,18 @@ export const useGame = create<Game>()(
         (set, get) => ({
             gold: 0,
             goldPerSecond: 0,
+
             bronzePerSecond: 0,
             copperPerSecond: 0,
             ironPerSecond: 0,
             goldOrePerSecond: 0,
+
+            setBronzePerSecond: (amnt) => set({bronze: get().bronzePerSecond + amnt}),
+            setCopperPerSecond: (amnt) => set({bronze: get().bronzePerSecond + amnt}),
+            setIronPerSecond: (amnt) => set({bronze: get().bronzePerSecond + amnt}),
+            setGoldPerSecond: (amnt) => set({bronze: get().bronzePerSecond + amnt}),
+
+
             lastTickAt: Date.now(),
             addGold: (amnt) => set({gold: get().gold + amnt}),
             setGold: (amnt) => set({gold: amnt}),

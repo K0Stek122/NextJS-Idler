@@ -22,6 +22,11 @@ const UpgradeCard: React.FC<UpgradeCardProps> = ({
     const ironPerSecond = useGame(s => s.ironPerSecond);
     const goldPerSecond = useGame(s => s.goldOrePerSecond);
 
+    const setBronzePerSecond = useGame(s => s.setBronzePerSecond);
+    const setCopperPerSecond = useGame(s => s.setCopperPerSecond);
+    const setIronPerSecond = useGame(s => s.setIronPerSecond);
+    const setGoldPerSecond = useGame(s => s.setGoldPerSecond);
+
     const getPerSecond = () => {
         if (upgradeName === "Bronze Miner") {
             return bronzePerSecond;
@@ -38,7 +43,17 @@ const UpgradeCard: React.FC<UpgradeCardProps> = ({
         if (gold < price) {
             return;
         }
-        
+        if (upgradeName === "Bronze Miner") {
+            setBronzePerSecond(bronzePerSecond + 1);
+        }
+        else if (upgradeName === "Copper Miner") {
+            setCopperPerSecond(copperPerSecond + 1);
+        } else if (upgradeName === "Iron Miner") {
+            setIronPerSecond(ironPerSecond + 1);
+        } else if (upgradeName === "Gold Miner") {
+            setGoldPerSecond(goldPerSecond + 1);
+        }
+        setGold(gold - price);
     };
 
     return (
